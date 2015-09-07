@@ -878,7 +878,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Generates opensslconf.h\npushd External/openssl\n./config";
+			shellScript = "# Generates opensslconf.h\npushd External/openssl\n\nCLANG=\"/usr/bin/xcrun clang\"\nexport cc=${CLANG}\n#HOST=\"BSD-generic64\"\nHOST=\"darwin64-x86_64-cc\"\nCONFIG=\"no-gost no-asm enable-ec_nistp_64_gcc_128\"\n\n#./config\n./Configure ${HOST} ${CONFIG} --openssldir=\"/tmp/openssl-${ARCH}\"\n#invoke './Configure darwin64-x86_64-cc  BSD-generic64 no-gost no-asm enable-ec_nistp_64_gcc_128 --openssldir=/tmp/openssl-' *manually*.\n\n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
